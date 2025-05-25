@@ -85,7 +85,7 @@ sample response
 }
 ```
 - Errors:
-400 Bad Request: File is not a valid PDF
+400 Bad Request: File is not a valid PDF <br/>
 500 Internal Server Error: Server-side processing failure
 
 
@@ -107,7 +107,7 @@ Response
 ```
 
 -Errors:
-404 Not Found: Document doesn't exist or hasn't been processed yet
+404 Not Found: Document doesn't exist or hasn't been processed yet <br/>
 500 Internal Server Error: Gemini/vector search failure
 
 3. GET /health: Simple health check endpoint to confirm the backend is online.
