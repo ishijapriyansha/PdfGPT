@@ -1,0 +1,52 @@
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# IDEs and editors
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Environments
+.env
+backend/.env
+.venv/
+env/
+venv/
+
+# Uploads and generated data
+backend/uploads/
+backend/vector_stores/
+backend/documents.db
+
+# Byte-compiled files
+*.pyc
+*.pyo
+
+# Others
+*.sqlite3
+
