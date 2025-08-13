@@ -1,6 +1,6 @@
 import axios from 'axios';
 // Base URL of the FastAPI backend
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://pdfgpt-gw6n.onrender.com';
 /**
  * Uploads a PDF document to the backend.
  *
