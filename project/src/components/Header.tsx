@@ -12,8 +12,8 @@ const Header: React.FC = () => {
             <FileText size={20} />
           </div>
              {/* App name and subtitle */}
-          <span className="text-xl font-semibold text-gray-800">AI Planet</span>
-          <span className="text-sm text-emerald-500 hidden sm:inline-block">formerly DPhi</span>
+          <span className="text-xl font-semibold text-gray-800">PdfGPT</span>
+          <span className="text-sm text-emerald-500 hidden sm:inline-block">documents made easier</span>
         </Link>
         
         {/* <div className="flex space-x-4">
