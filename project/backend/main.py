@@ -17,6 +17,7 @@ from langchain_google_genai import GoogleGenerativeAI, GoogleGenerativeAIEmbeddi
 from langchain.vectorstores import FAISS
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
+from langchain.embeddings import HuggingFaceEmbeddings
 
 # configure logging
 logging.basicConfig(level=logging.INFO)
@@ -120,7 +121,7 @@ async def process_document(document_id: str, file_path: str):
         chunks = text_splitter.split_text(text)
         
         # create vector store
-        embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+        embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
         vector_store = FAISS.from_texts(chunks, embeddings)
         
         # save vector store
@@ -135,7 +136,7 @@ async def process_document(document_id: str, file_path: str):
             memory_key="chat_history",
             return_messages=True
         )
-        llm = GoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
+        llm = GoogleGenerativeAI(model="gemini-2.5-flash-lite", temperature=0)
         conversation_chain = ConversationalRetrievalChain.from_llm(
             llm=llm,
             retriever=vector_store.as_retriever(),
@@ -206,7 +207,7 @@ async def ask_question(request: QuestionRequest):
                     memory_key="chat_history",
                     return_messages=True
                 )
-                llm = GoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
+                llm = GoogleGenerativeAI(model="gemini-2.5-flash-lite", temperature=0)
                 conversation_chains[document_id] = ConversationalRetrievalChain.from_llm(
                     llm=llm,
                     retriever=document_stores[document_id].as_retriever(),
@@ -225,7 +226,7 @@ async def ask_question(request: QuestionRequest):
                 memory_key="chat_history",
                 return_messages=True
             )
-            llm = GoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
+            llm = GoogleGenerativeAI(model="gemini-2.5-flash-lite", temperature=0)
             conversation_chain = ConversationalRetrievalChain.from_llm(
                 llm=llm,
                 retriever=document_stores[document_id].as_retriever(),
